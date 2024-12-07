@@ -26,3 +26,4 @@
 <strong>RF 17:</strong> O administrador deve poder remover livros do acervo; <br>
 <strong>RF 18:</strong> O sistema deve permitir a pesquisa por livros no catálogo, utilizando filtros como: título, autor, categoria, ou ISBN.
 </p>
+<hr>
