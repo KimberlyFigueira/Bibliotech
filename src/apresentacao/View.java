@@ -86,27 +86,27 @@ public class View {
 	    switch (opcaoFuncaoAluno) {
 	        case 1:
 	            AlunoDAO.mostrarDadosAluno();
-	            voltarSair(input);
+	            voltarSairAluno(input);
 	            break;
 	        case 2:
 	        	System.out.println("Digite sua matrícula: ");
 	        	String matricula = input.next();
 	            AlunoDAO.alterarDados(input, matricula);
-	            voltarSair(input);
+	            voltarSairAluno(input);
 	            break;
 	        case 3:
 	            AlunoDAO.doarLivro();
-	            voltarSair(input);
+	            voltarSairAluno(input);
 	            break;
 	        case 4: AlunoDAO.consultarAcervo();
-	        	voltarSair(input);
+	        	voltarSairAluno(input);
 	        	break;
 	        case 5: System.out.println("Digite sua matricula para realizar o empréstimo:");
             	matricula = input.next();
             	Aluno aluno = new Aluno();
             	aluno.setMatricula(matricula);
             	AlunoDAO.pegarLivroEmprestado(aluno);
-            	voltarSair(input);
+            	voltarSairAluno(input);
             	break;
 	        case 6: System.out.println("Saindo... Até mais.");
 	        		bemVindo();;
@@ -114,7 +114,7 @@ public class View {
 	        case 7: System.out.println("Digite sua matrícula para deletar a conta");
 	        	matricula = input.next();
 	        	AlunoDAO.deletarConta(matricula);
-	        	voltarSair(input);
+	        	voltarSairAluno(input);
 	        default:
 	            System.out.println("Opção inválida! Tente novamente.");
 	            opcoesAluno(input);
@@ -139,23 +139,23 @@ public class View {
 	    switch (opcaoFuncaoADM) {
 	        case 1:
 	            AdministradorDAO.mostrarDadosAdm();;
-	            voltarSair(input);
+	            voltarSairAdm(input);
 	            break;
 	        case 2:
 	        	System.out.println("Digite sua matrícula: ");
 	        	String matricula = input.next();
 	            AdministradorDAO.alterarDados(input, matricula);
-	            voltarSair(input);
+	            voltarSairAdm(input);
 	            break;
 	        case 3:
-	            AdministradorDAO.adicionarLivro();;
-	            voltarSair(input);
+	            AdministradorDAO.consultarAcervo();;
+	            voltarSairAdm(input);
 	            break;
-	        case 4: AdministradorDAO.consultarAcervo();
-	        	voltarSair(input);
+	        case 4: AdministradorDAO.adicionarLivro();
+	        	voltarSairAdm(input);
 	        	break;
 	        case 5: AdministradorDAO.deletarLivro();
-            	voltarSair(input);
+            	voltarSairAdm(input);
             	break;
 	        case 6: System.out.println("Digite sua matrícula para deletar a conta: ");
 	        	matricula = input.next();
@@ -165,11 +165,29 @@ public class View {
 	        case 7: System.out.println("Saindo... Até mais!");
 	        default:
 	            System.out.println("Opção inválida! Tente novamente.");
-	            opcoesAluno(input);
+	            opcoesAdm(input);
 	    }
 	}
 	
-	public static void voltarSair(Scanner input) {
+	public static void voltarSairAdm(Scanner input) {
+		System.out.println("|----------------|");
+	    System.out.println("| 1 - Voltar     |");
+	    System.out.println("| 2 - Sair       |");
+	    System.out.println("|----------------|");
+
+	    int escolha = input.nextInt();
+
+	    if (escolha == 1) {
+	        opcoesAdm(input);
+	    } else if (escolha == 2) {
+	        System.out.println("Saindo do sistema. Até mais!");
+	    } else {
+	        System.out.println("Opção inválida! Tente novamente.");
+	        voltarSairAluno(input);
+	    }
+	}
+	
+	public static void voltarSairAluno(Scanner input) {
 		System.out.println("|----------------|");
 	    System.out.println("| 1 - Voltar     |");
 	    System.out.println("| 2 - Sair       |");
@@ -183,7 +201,7 @@ public class View {
 	        System.out.println("Saindo do sistema. Até mais!");
 	    } else {
 	        System.out.println("Opção inválida! Tente novamente.");
-	        voltarSair(input);
+	        voltarSairAluno(input);
 	    }
 	}
 	
