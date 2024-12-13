@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Administrador extends Usuario{
-	private LocalDate dataContratacao;
 	private ArrayList<Emprestimo> historicoEmprestimoAlunos;
 
 	public Administrador() {
@@ -13,16 +12,7 @@ public class Administrador extends Usuario{
 
 	public Administrador(String tipo, String nome, String sobrenome, String matricula, String senha, LocalDate dataContratacao, ArrayList<Emprestimo> historicoEmprestimoAlunos) {
 		super("Administrador", nome, sobrenome, matricula, senha);
-		this.dataContratacao = dataContratacao;
 		this.historicoEmprestimoAlunos = historicoEmprestimoAlunos;
-	}
-
-	public LocalDate getDataContratacao() {
-		return dataContratacao;
-	}
-
-	public void setDataContratacao(LocalDate dataContratacao) {
-		this.dataContratacao = dataContratacao;
 	}
 
 	public ArrayList<Emprestimo> getHistoricoEmprestimoAlunos() {
@@ -35,7 +25,7 @@ public class Administrador extends Usuario{
 
 	@Override
 	public String toString() {
-		return "Administrador [dataContratacao=" + dataContratacao + ", historicoEmprestimoAlunos="
+		return "Administrador [ historicoEmprestimoAlunos="
 				+ historicoEmprestimoAlunos + "]";
 	}
 	
