@@ -124,15 +124,17 @@ public class View {
 	public static void opcoesAdm(Scanner input) {
 		System.out.println("Seja muito bem vinde ");
 		System.out.println("Oque você deseja fazer?");
-		System.out.println("|----------------------|");
-		System.out.println("| 1 - Mostrar dados    |");
-		System.out.println("| 2 - Editar dados     |");
-		System.out.println("| 3 - Consultar Acervo |");
-		System.out.println("| 4 - Adicionar livro  |");
-		System.out.println("| 5 - Deletar livro    |");
-		System.out.println("| 6 - Deletar conta    |");
-		System.out.println("| 7 - Sair             |");
-		System.out.println("|----------------------|");
+		System.out.println("|------------------------|");
+		System.out.println("| 1 - Mostrar dados      |");
+		System.out.println("| 2 - Editar dados       |");
+		System.out.println("| 3 - Consultar Acervo   |");
+		System.out.println("| 4 - Adicionar livro    |");
+		System.out.println("| 5 - Ver empréstimos    |");
+		System.out.println("| 6 - Excluir empréstimo |");
+		System.out.println("| 7 - Deletar livro      |");
+		System.out.println("| 8 - Deletar conta      |");
+		System.out.println("| 9 - Sair               |");
+		System.out.println("|------------------------|");
 		
 		int opcaoFuncaoADM = input.nextInt();
 
@@ -154,16 +156,22 @@ public class View {
 	        case 4: AdministradorDAO.adicionarLivro();
 	        	voltarSairAdm(input);
 	        	break;
-	        case 5: AdministradorDAO.deletarLivro();
+	        case 5: AdministradorDAO.visualizarLivrosEmprestados();
             	voltarSairAdm(input);
             	break;
-	        case 6: System.out.println("Digite sua matrícula para deletar a conta: ");
+	        case 6: System.out.println("Digite sua matrícula: ");
 	        	matricula = input.next();
-	        	AdministradorDAO.deletarConta(matricula);
-	        	bemVindo();
+	        	AdministradorDAO.removerEmprestimo(matricula);
 	        	break;
-	        case 7: System.out.println("Saindo... Até mais!");
-	        	bemVindo();
+	        case 7: AdministradorDAO.deletarLivro();
+	        	break;
+	        case 8: System.out.println("Digite sua matrícula para deletar a conta: ");
+        		matricula = input.next();
+        		AdministradorDAO.deletarConta(matricula);
+        		bemVindo();
+	        	break;
+	        case 9:
+	        	break;
 	        default:
 	            System.out.println("Opção inválida! Tente novamente.");
 	            opcoesAdm(input);

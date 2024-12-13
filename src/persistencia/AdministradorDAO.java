@@ -204,4 +204,37 @@ public class AdministradorDAO {
 	        }
 	        System.out.println("Administrador com a matrícula fornecida não encontrado.");
 	    }
+	 
+	    public static void visualizarLivrosEmprestados() {
+	        boolean livrosEmprestados = false;
+
+	        System.out.println("Livros Emprestados:");
+	        for (Livro livro : acervoLivros) {
+	            if (livro.getAluno() != null) {
+	                System.out.println("Título: " + livro.getNome());
+	                System.out.println("Autor: " + livro.getAutor());
+	                System.out.println("Emprestado para: " + livro.getAluno().getNome());
+	                System.out.println("Matrícula do aluno: " + livro.getAluno().getMatricula());
+	                System.out.println("-------------------------------");
+	                livrosEmprestados = true;
+	            }
+	        }
+
+	        if (!livrosEmprestados) {
+	            System.out.println("Nenhum livro está emprestado no momento.");
+	        }
+	    }
+
+	    // Método para remover um empréstimo
+	    public static void removerEmprestimo(String tituloLivro) {
+	        for (Livro livro : acervoLivros) {
+	            if (livro.getNome().equalsIgnoreCase(tituloLivro) && livro.getAluno() != null) {
+	                livro.setAluno(null); // Remove o empréstimo ao desassociar o aluno
+	                System.out.println("O empréstimo do livro '" + tituloLivro + "' foi removido com sucesso.");
+	                return;
+	            }
+	        }
+
+	        System.out.println("Livro não encontrado ou não está emprestado.");
+	    }
 }
