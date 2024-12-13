@@ -109,7 +109,7 @@ public class View {
             	voltarSairAluno(input);
             	break;
 	        case 6: System.out.println("Saindo... Até mais.");
-	        		bemVindo();;
+	        		bemVindo();
 	        	break;
 	        case 7: System.out.println("Digite sua matrícula para deletar a conta");
 	        	matricula = input.next();
@@ -163,6 +163,7 @@ public class View {
 	        	bemVindo();
 	        	break;
 	        case 7: System.out.println("Saindo... Até mais!");
+	        	bemVindo();
 	        default:
 	            System.out.println("Opção inválida! Tente novamente.");
 	            opcoesAdm(input);
